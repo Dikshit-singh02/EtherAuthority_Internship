@@ -1,0 +1,23 @@
+.reusable-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.reusable-button.blue {
+  background-color: #007bff;
+  color: white;
+}
+
+.reusable-button.green {
+  background-color: #28a745;
+  color: white;
+}
+
+.reusable-button.red {
+  background-color: #dc3545;
+  color: white;
+}

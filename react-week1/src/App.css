@@ -1,0 +1,55 @@
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.app h1 {
+  text-align: center;
+  color: #333;
+}
+
+.counter, .input-form, .todo-list, .api-fetch, .reusable-example {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.input-form input {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.todo-list input {
+  margin-right: 10px;
+  padding: 8px;
+}
+
+.todo-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.api-fetch ul {
+  list-style: none;
+  padding: 0;
+}
+
+.api-fetch li {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}

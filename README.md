@@ -108,3 +108,56 @@ A basic React application was built to understand frontend fundamentals.
 
 ## 📂 Project Structure (Overview)
 
+week1-foundations/
+│
+├── smart-contracts/
+│ ├── HelloWorld.sol
+│ ├── Counter.sol
+│ ├── SimpleStorage.sol
+│ ├── Voting.sol
+│ └── InternshipStatus.sol
+│
+├── react-app/
+│ ├── src/
+│ │ ├── components/
+│ │ ├── App.jsx
+│ │ └── main.jsx
+│ └── package.json
+│
+├── ai-documentation/
+│ └── ai-basics.md
+│
+└── README.md
+
+
+---
+
+## 📦 Deliverables
+
+- ✅ Sepolia Smart Contract Address(es)
+- ✅ React GitHub Repository with examples
+- ✅ Solidity Smart Contract Source Code
+- ✅ AI Concept Documentation
+
+---
+
+## 🚀 Key Learnings
+
+- Strong understanding of blockchain and Ethereum basics
+- Hands-on experience with Solidity smart contracts
+- React fundamentals and component-based UI development
+- Basics of AI and its real-world usage
+- Improved debugging and problem-solving skills
+
+---
+
+## 👨‍💻 Author
+
+**Dikshit Singh**  
+MCA Student  
+Web3 & React Developer (Beginner Level)
+
+---
+
+## 📜 License
+This repository is created for **educational and internship learning purposes only**.

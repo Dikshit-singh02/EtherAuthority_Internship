@@ -255,19 +255,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "burn",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -609,11 +596,11 @@
 			]
 		},
 		"Week2/smart-contracts/TaskCompletionToken.sol": {
-			"keccak256": "0x033633009fb45f0bb4033d51ed6b00fe5b1b2c80e6a9e2ca4701c75dc7051803",
+			"keccak256": "0x3305085df82d9c759b0ba574a7091b77fc25680a1821aff463ea1dd39de3af18",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://facbfe9d23037a71c83e9981918583bf9ea496eb06b038c38859d5b7d6ec3598",
-				"dweb:/ipfs/Qmc95MPDmRL96jf1bwLv8uzrFePjuhrQtJmqRper24Eit9"
+				"bzz-raw://501935253b4e1b67df94e4c8698c962b31f02a9e4fa52ea76f66122bf247b231",
+				"dweb:/ipfs/QmTnvtrgQCoWf5dLm54J6W6vKV6mZfisLzpYChpwFjX66R"
 			]
 		}
 	},

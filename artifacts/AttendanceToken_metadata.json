@@ -255,19 +255,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "burn",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -609,11 +596,11 @@
 			]
 		},
 		"Week2/smart-contracts/AttendanceToken.sol": {
-			"keccak256": "0xba255da94a73065ab9190fb5c439ec538166fccfe96a285f78f392058eb04dd2",
+			"keccak256": "0x1be889c7f93c6697e83044fd8886ecc5f548224b52bf4b48ce62eb45ca6ffaac",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3e01621097ce486eea43a4cdd04016998dc858e79e78e3a146126ec1662619ff",
-				"dweb:/ipfs/QmPVcYSV4Ffrbi5uq4z8vzUmeoVS6FHSPSippTumEfhkpY"
+				"bzz-raw://35abeef5ed062a0faf586f2a748fb617f5a934452e8f38e02ec29eaf06601adf",
+				"dweb:/ipfs/QmdLPXHRvRmkNcCv2U2b8qWS4hMkQuWveirA3mfypQxBCy"
 			]
 		}
 	},

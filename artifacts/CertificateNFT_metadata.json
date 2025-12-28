@@ -6,18 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "symbol",
-						"type": "string"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -917,11 +906,11 @@
 			]
 		},
 		"Week2/smart-contracts/CertificateNFT.sol": {
-			"keccak256": "0x9b2c0349d46baaae9873face662dc0c2a0154d557625ed4eef972964a6bc8a22",
+			"keccak256": "0xf779e40e3219fc9734f3b9e37f54e89f39e9b8848a916d7e8c06e3302ba81aab",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://de298e431c1f9a497d822707cda23789f96009394d16237fda04f63d1516e1be",
-				"dweb:/ipfs/QmdHADvk5yNAfcK3t4i22g2RYBiCg7hRHeMk2H15iAvE4j"
+				"bzz-raw://e52ca53a1a50c8f1b2b25c823393b6ad1f72bd07d7ec56279065bef7f8bd715c",
+				"dweb:/ipfs/QmZbAipzGiuwdpJ9XvYxGisVcvxyp4dEPwDDVCrmVSjxhD"
 			]
 		}
 	},

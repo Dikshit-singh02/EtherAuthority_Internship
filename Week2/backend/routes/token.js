@@ -1,77 +1,86 @@
-const express = require('express');
 const router = express.Router();
 const ethers = require('ethers');
 const NFTRecord = require('../models/NFTRecord');
 const InternProfile = require('../models/InternProfile');
-const TaskTracking = require('../models/TaskTracking');
 
-// Load contract ABIs (assuming they are in artifacts folder)
-const InternRewardTokenABI = require('../../artifacts/InternRewardToken.json').abi;
-const TaskCompletionTokenABI = require('../../artifacts/TaskCompletionToken.json').abi;
-const AttendanceTokenABI = require('../../artifacts/AttendanceToken.json').abi;
-const CertificateNFTABI = require('../../artifacts/CertificateNFT.json').abi;
+// Load CertificateNFT ABI
+const CertificateNFTABI = require('../../../artifacts/CertificateNFT.json').abi;
 
 // Setup provider and signer
 const provider = new ethers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL);
 const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
-// Contract instances
-const internRewardToken = new ethers.Contract(process.env.INTERN_REWARD_TOKEN_ADDRESS, InternRewardTokenABI, signer);
-const taskCompletionToken = new ethers.Contract(process.env.TASK_COMPLETION_TOKEN_ADDRESS, TaskCompletionTokenABI, signer);
-const attendanceToken = new ethers.Contract(process.env.ATTENDANCE_TOKEN_ADDRESS, AttendanceTokenABI, signer);
+// CertificateNFT contract instance
 const certificateNFT = new ethers.Contract(process.env.CERTIFICATE_NFT_ADDRESS, CertificateNFTABI, signer);
+const express = require('express');
+const router = express.Router();
+const ethers = require('ethers');
+const NFTRecord = require('../models/NFTRecord');
+const InternProfile = require('../models/InternProfile');
 
-// POST /api/token/mint - Mint tokens or NFTs
-router.post('/mint', async (req, res) => {
+// Load CertificateNFT ABI
+const CertificateNFTABI = require('../../../artifacts/CertificateNFT.json').abi;
+
+// Setup provider and signer (only if environment variables are set)
+let certificateNFT = null;
+if (process.env.SEPOLIA_RPC_URL && process.env.PRIVATE_KEY && process.env.CERTIFICATE_NFT_ADDRESS) {
   try {
-    const { internId, tokenType, amount, tokenURI } = req.body;
+    const provider = new ethers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL);
+    const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+    certificateNFT = new ethers.Contract(process.env.CERTIFICATE_NFT_ADDRESS, CertificateNFTABI, signer);
+  } catch (error) {
+    console.warn('Failed to initialize blockchain connection:', error.message);
+  }
+}
+
+// POST /api/token/mint-nft - Mint Certificate NFT
+router.post('/mint-nft', async (req, res) => {
+  try {
+    const { internId, tokenURI } = req.body;
+
+    if (!internId || !tokenURI) {
+      return res.status(400).json({ error: 'internId and tokenURI are required' });
+    }
+
+    if (!certificateNFT) {
+      return res.status(500).json({ error: 'Blockchain connection not configured' });
+    }
 
     const intern = await InternProfile.findById(internId);
     if (!intern) {
       return res.status(404).json({ error: 'Intern not found' });
     }
 
-    let tx, tokenId;
-
-    switch (tokenType) {
-      case 'intern_reward':
-        tx = await internRewardToken.mint(intern.walletAddress, ethers.parseEther(amount.toString()));
-        break;
-      case 'task_completion':
-        tx = await taskCompletionToken.mint(intern.walletAddress, ethers.parseEther(amount.toString()));
-        break;
-      case 'attendance':
-        tx = await attendanceToken.mint(intern.walletAddress, ethers.parseEther(amount.toString()));
-        break;
-      case 'certificate_nft':
-        tx = await certificateNFT.mintNFT(intern.walletAddress, tokenURI);
-        tokenId = await certificateNFT.tokenId();
-        break;
-      default:
-        return res.status(400).json({ error: 'Invalid token type' });
-    }
-
+    // Mint NFT using ethers.js
+    const tx = await certificateNFT.mintNFT(intern.walletAddress, tokenURI);
     await tx.wait();
 
-    // Record NFT minting in DB if applicable
-    if (tokenType === 'certificate_nft') {
-      const newNFT = new NFTRecord({
-        internId,
-        tokenId: tokenId.toString(),
-        contractAddress: process.env.CERTIFICATE_NFT_ADDRESS,
-        tokenURI,
-        nftType: 'certificate',
-        transactionHash: tx.hash
-      });
-      await newNFT.save();
+    // Get the token ID (assuming the contract has a tokenId counter)
+    const tokenId = await certificateNFT.tokenId();
 
-      // Update intern's NFTs
-      intern.nftsOwned.push(newNFT._id);
-      await intern.save();
-    }
+    // Record NFT in database
+    const newNFT = new NFTRecord({
+      internId,
+      tokenId: tokenId.toString(),
+      contractAddress: process.env.CERTIFICATE_NFT_ADDRESS,
+      tokenURI,
+      nftType: 'certificate',
+      transactionHash: tx.hash
+    });
+    await newNFT.save();
 
-    res.json({ message: 'Token minted successfully', transactionHash: tx.hash });
+    // Update intern's NFTs
+    intern.nftsOwned.push(newNFT._id);
+    await intern.save();
+
+    res.json({
+      message: 'NFT minted successfully',
+      transactionHash: tx.hash,
+      tokenId: tokenId.toString(),
+      nft: newNFT
+    });
   } catch (error) {
+    console.error('Minting error:', error);
     res.status(500).json({ error: 'Minting failed', details: error.message });
   }
 });

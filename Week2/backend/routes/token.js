@@ -1,17 +1,3 @@
-const router = express.Router();
-const ethers = require('ethers');
-const NFTRecord = require('../models/NFTRecord');
-const InternProfile = require('../models/InternProfile');
-
-// Load CertificateNFT ABI
-const CertificateNFTABI = require('../../../artifacts/CertificateNFT.json').abi;
-
-// Setup provider and signer
-const provider = new ethers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL);
-const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-
-// CertificateNFT contract instance
-const certificateNFT = new ethers.Contract(process.env.CERTIFICATE_NFT_ADDRESS, CertificateNFTABI, signer);
 const express = require('express');
 const router = express.Router();
 const ethers = require('ethers');

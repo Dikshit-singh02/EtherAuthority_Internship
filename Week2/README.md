@@ -1,19 +1,37 @@
-## Deployed ERC20 Tokens (Sepolia)
 
-Intern Reward Token (IRT):
-0x01a3328879bb07C84AB7643B393E0b269EbFe09F______
+---
 
-Task Completion Token (TCT):
-0x6fa00448B8F2CD18A3Ba967f5c369B91e308ac75______
+## ⚙️ What Was Built
 
-Attendance Token (ATT):
-0x1adB04401cff7773875b1E3046289512CF9AfDD7
+- ERC-20 reward tokens deployed  
+- ERC-721 NFT certificate contracts  
+- Certificates uploaded to IPFS  
+- NFTs minted to wallet  
+- Smart contracts verified on Sepolia  
 
-Internship Certificate NFT:
-0x3A3ae1B24A5dAe55a976EAfBFBD290d2E95a8D0E
+---
 
-Course Completion NFT:
-0xf792F315A291cA9777aD8F72697039086a5659F6
+## 🔐 Blockchain Benefits
 
-Achievement Badge NFT:
-0xB8D938224a974e59629aA3E5866293ea0eF92901
+- Immutable certificates  
+- Publicly verifiable NFTs  
+- Transparent reward system  
+- Decentralized storage  
+
+---
+
+## ✅ Week-2 Completion Checklist
+
+✔ ERC-20 Tokens  
+✔ ERC-721 NFTs  
+✔ IPFS Integration  
+✔ Remix Deployment  
+✔ Sepolia Testnet  
+✔ On-chain Minting  
+
+---
+
+## 👨‍💻 Developer
+
+**Dikshit Singh**  
+MCA Student | Web3 & MERN Developer  

@@ -1,0 +1,51 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.form-section {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-section input,
+.form-section textarea {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.nft-section {
+  width: 100%;
+  max-width: 800px;
+}
+
+.nft-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  display: inline-block;
+  width: 200px;
+  margin-right: 1rem;
+}
+
+.nft-card img {
+  max-width: 100%;
+  height: auto;
+}
